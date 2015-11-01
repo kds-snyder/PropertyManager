@@ -17,3 +17,5 @@
             .state('lease.grid', { url: '/lease', templateUrl: '/templates/lease/grid.html', controller: 'LeaseGridController' })
             .state('lease.detail', { url: '/detail', templateUrl: '/templates/lease/detail.html', controller: 'LeaseDetailController' });
 });
+
+angular.module('app').value('apiUrl', 'http://localhost:5000/api/');

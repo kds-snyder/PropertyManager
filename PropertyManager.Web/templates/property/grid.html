@@ -1,16 +1,42 @@
-﻿<h1>property grid</h1>
-
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Property Name</th>
-            <th>Address 1</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr ng-repeat="property in properties">
-            <td>{{property.Name}}</td>
-            <td>{{property.Address1}}</td>
-        </tr>
-    </tbody>
-</table>
+﻿<div class="panel panel-default">
+    <div class="panel-heading clearfix">
+        <i class="fa fa-home"></i> Properties
+        <button class="btn btn-sm btn-success pull-right" ui-sref="property.detail"><i class="fa fa-plus"></i> Add Property</button>
+    </div>
+    <div class="panel-body">
+        <div class="alert alert-info" ng-hide="properties.length">
+            There are no properties - please add one
+        </div>
+        <table class="table table-striped" ng-show="properties.length">
+            <thead>
+                <tr>
+                    <th>Property Name</th>
+                    <th>Address 1</th>
+                    <th>Address 2</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>Zip</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="property in properties">
+                    <td>{{property.Name}}</td>
+                    <td>{{property.Address1}}</td>
+                    <td>{{property.Address2}}</td>
+                    <td>{{property.City}}</td>
+                    <td>{{property.State}}</td>
+                    <td>{{property.Zip}}</td>
+                    <td>
+                        <button class="btn btn-xs btn-info" ui-sref="property.detail({ id: property.PropertyId })">
+                            <i class="fa fa-edit"></i>
+                        </button>
+                        <button class="btn btn-xs btn-danger" ng-click="deleteProperty(property)">
+                            <i class="fa fa-remove"></i>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
